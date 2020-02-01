@@ -1,0 +1,1 @@
+{FreeVerb.ar(CombC.ar(CombL.ar(SinOsc.ar(60.midicps*MouseX.kr(1,2),0,MouseY.kr(0,1))+SinOsc.ar(67.midicps*MouseX.kr(1,2),0,MouseY.kr(0,1))+SinOsc.ar(63.midicps*MouseX.kr(1,2),0,MouseY.kr(0,1))+SinOsc.ar(70.midicps*MouseX.kr(1,2),0,MouseY.kr(0,1))+SinOsc.ar(74.midicps*MouseX.kr(1,2),0,MouseY.kr(0,1)),0.2,0.1,1),0.1,MouseY.kr(0.01,0.1),2),0.5,1,0.5)!2}.play;
