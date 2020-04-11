@@ -2,7 +2,7 @@ import processing.sound.*;
 SoundFile file1,file2,file3,P1,P2,P3,P4,P5,D1,D2,D3,D4,D5,B1,B2,B3,B4,B5;
 
 int red, green, blue;
-float pamp,bamp,damp,scamp, p5Rate, M6Rate,bampc;
+float pamp,bamp,damp,scamp, p5Rate, ma6Rate,bampc;
 
 void setup() {
   size(640, 360);
@@ -51,7 +51,7 @@ void setup() {
   D5.amp(damp);
   //setting rate playback settings to transpose base notes into cm pentatonic at higher register
   p5Rate = 1.17; //perfect 5th 
-  M6Rate = 1.5; //major 6th
+  ma6Rate = 1.5; //major 6th
 }      
 
 void draw() {
@@ -117,7 +117,7 @@ void keyPressed() {
   case '9':
     B4.play();
     B4.amp(bampc);
-    B4.rate(M6Rate);//relating note by major 6th
+    B4.rate(ma6Rate);//relating note by major 6th
     file1.amp(scamp);
     file2.amp(scamp);
     file3.amp(scamp);
