@@ -30,7 +30,7 @@ void setup() {
   //amp levels
   pamp = 0.05;
   bamp = 0.2;
-  damp = 0.1;
+  damp = 0.2;
   scamp = 0.08; // pseudo side chain compression ducking amplitude
   bampc = 0.23; //bass amp pseudo compressed amplitude
   //Main loops
@@ -59,7 +59,7 @@ void draw() {
   //initialize main loop levels
   file1.amp(0.1);
   file3.amp(0.1);
-  file2.amp(0.15);
+  file2.amp(0.2);
   //initialize volume levels Bass
   B1.amp(bamp);
   B2.amp(bamp);
