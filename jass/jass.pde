@@ -2,6 +2,7 @@ import processing.sound.*;
 SoundFile file1,file2,file3,P1,P2,P3,P4,P5,D1,D2,D3,D4,D5,B1,B2,B3,B4,B5;
 
 int red, green, blue;
+float pamp,bamp,damp,scamp, p5Rate, m6Rate,bampc;
 
 void setup() {
   size(640, 360);
@@ -26,13 +27,45 @@ void setup() {
   D3 = new SoundFile(this, "Drums tomL.wav");
   D4 = new SoundFile(this, "Drums tomH.wav");
   D5 = new SoundFile(this, "Drums tomM.wav");
+  //amp levels
+  pamp = 0.05;
+  bamp = 0.2;
+  damp = 0.1;
+  scamp = 0.08; // pseudo side chain compression ducking amplitude
+  bampc = 0.23; //bass amp pseudo compressed amplitude
+  //Main loops
   file1.loop();
   file2.loop();
   file3.loop();
+  //initialize volume levels Piano
+  P1.amp(pamp);
+  P2.amp(pamp);
+  P3.amp(pamp);
+  P4.amp(pamp);
+  P5.amp(pamp);
+  //initialize volume levels drums
+  D1.amp(damp);
+  D2.amp(damp);
+  D3.amp(damp);
+  D4.amp(damp);
+  D5.amp(damp);
+  //setting rate playback settings to transpose base notes into cm pentatonic at higher register
+  p5Rate = 1.17; //perfect 5th 
+  m6Rate = 1.33; //minor 6th
 }      
 
 void draw() {
    background(red, green, blue);
+  //initialize main loop levels
+  file1.amp(0.1);
+  file3.amp(0.1);
+  file2.amp(0.15);
+  //initialize volume levels Bass
+  B1.amp(bamp);
+  B2.amp(bamp);
+  B3.amp(bamp);
+  B4.amp(bamp);
+  B5.amp(bamp);
 }
 
 void keyPressed() {
@@ -59,18 +92,43 @@ void keyPressed() {
     break;
   case '6':
     B1.play();
+    B1.amp(bampc);
+    B1.rate(p5Rate);//relating note by 5th
+    file1.amp(scamp);
+    file2.amp(scamp);
+    file3.amp(scamp);
     break;
   case '7':
     B2.play();
+    B2.amp(bampc);
+    B2.rate(p5Rate);//relating note by 5th
+    file1.amp(scamp);
+    file2.amp(scamp);
+    file3.amp(scamp);
     break;
   case '8':
     B3.play();
+    B3.amp(bampc);
+    B3.rate(p5Rate);//relating note by 5th
+    file1.amp(scamp);
+    file2.amp(scamp);
+    file3.amp(scamp);
     break;
   case '9':
     B4.play();
+    B4.amp(bampc);
+    B4.rate(m6Rate);//relating note by minor 6th
+    file1.amp(scamp);
+    file2.amp(scamp);
+    file3.amp(scamp);
     break;
   case '0':
     B5.play();
+    B5.amp(bampc);
+    B5.rate(p5Rate);//relating note by 5th
+    file1.amp(scamp);
+    file2.amp(scamp);
+    file3.amp(scamp);
     break;
   case 'q':
     D1.play();
