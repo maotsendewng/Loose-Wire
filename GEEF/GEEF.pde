@@ -57,5 +57,6 @@ void setup() {
 void draw() {
   background(0);
   image( dancer[frameCount%20], 0, 0 );
+  tint(255,mouseX);
   
 }
